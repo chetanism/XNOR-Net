@@ -189,7 +189,7 @@ if paths.filep(meanstdCache) then
    print('Loaded mean and std from cache.')
 else
    local tm = torch.Timer()
-   local nSamples = 10000
+   local nSamples = 2
    print('Estimating the mean (per-channel, shared for all pixels) over ' .. nSamples .. ' randomly sampled training images')
    local meanEstimate = {0,0,0}
    for i=1,nSamples do

@@ -19,7 +19,8 @@ function computeScore(output, target, nCrops)
       target:long():view(batchSize, 1):expandAs(output))
 
    local top1 = correct:narrow(2, 1, 1):sum() / batchSize
-   local top5 = correct:narrow(2, 1, 5):sum() / batchSize
+--   local top5 = correct:narrow(2, 1, 5):sum() / batchSize
+   local top5 = 0
 
    return top1 * 100, top5 * 100
 end
