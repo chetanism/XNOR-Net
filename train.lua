@@ -94,7 +94,7 @@ function train()
    
 
    batchNumber = 0
-   cutorch.synchronize()
+--   cutorch.synchronize()
 
    -- set the dropouts to training mode
    model:training()
@@ -117,7 +117,7 @@ function train()
    end
 
    donkeys:synchronize()
-   cutorch.synchronize()
+--   cutorch.synchronize()
 
    
    loss_epoch = loss_epoch / opt.epochSize
@@ -145,8 +145,8 @@ end -- of train()
 -------------------------------------------------------------------------------------------
 -- GPU inputs (preallocate)
 collectgarbage()
-local inputs = torch.CudaTensor()
-local labels = torch.CudaTensor()
+local inputs = torch.Tensor()
+local labels = torch.Tensor()
 
 local timer = torch.Timer()
 local dataTimer = torch.Timer()
@@ -155,7 +155,7 @@ local procTimer = torch.Timer()
 
 -- 4. trainBatch - Used by train() to train a single batch after the data is loaded.
 function trainBatch(inputsCPU, labelsCPU)
-   cutorch.synchronize()
+--   cutorch.synchronize()
    collectgarbage()
    local dataLoadingTime = dataTimer:time().real
    procTimer:reset()
@@ -211,7 +211,7 @@ function trainBatch(inputsCPU, labelsCPU)
    end
    
 
-   cutorch.synchronize()
+--   cutorch.synchronize()
    batchNumber = batchNumber + 1
    loss_epoch = loss_epoch + err
    

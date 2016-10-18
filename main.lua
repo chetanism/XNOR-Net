@@ -6,9 +6,9 @@
 --  LICENSE file in the root directory of this source tree. An additional grant
 --  of patent rights can be found in the PATENTS file in the same directory.
 --
-debugger = require('fb.debugger')
+--debugger = require('fb.debugger')
 require 'torch'
-require 'cutorch'
+--require 'cutorch'
 require 'paths'
 require 'xlua'
 require 'optim'
@@ -31,7 +31,7 @@ opt.imageCrop = model.imageCrop or opt.imageCrop
 
 print(opt)
 
-cutorch.setDevice(opt.GPU) -- by default, use GPU 1
+--cutorch.setDevice(opt.GPU) -- by default, use GPU 1
 torch.manualSeed(opt.manualSeed)
 
 print('Saving everything to: ' .. opt.save)
